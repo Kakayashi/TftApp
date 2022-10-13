@@ -3,15 +3,15 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
-	border-top: 2px solid ${({ theme }) => theme.colors.transparent2};
-	border-bottom: 2px solid ${({ theme }) => theme.colors.transparent2};
-	width: 20%;
+	width: 15%;
 	align-items: center;
 	color: white;
+	@media (max-width: 1355px) and (min-width: 1000px) {
+		margin-right: 40px;
+	}
+
 	@media (max-width: 1000px) {
 		width: 100%;
-		border-top: 0;
-		border-bottom: 0;
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
