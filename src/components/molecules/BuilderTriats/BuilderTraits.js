@@ -7,10 +7,15 @@ import {
 	TeamInfoTraitInfo,
 	TeamInfoTraitNumber,
 } from "./BuilderTraits.style";
+import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { DeleteTeam } from "../../../store";
 
 function BuilderTraits() {
 	const [traits, setTraits] = useState([]);
 	const team2 = useSelector((state) => state.team);
+	let location = useLocation();
+	const dispatch = useDispatch();
 
 	const FindTriats = () => {
 		let tab = [];
@@ -25,31 +30,33 @@ function BuilderTraits() {
 					: tab.push({ name: element, count: 1 });
 			});
 		});
-		setTraits(tab);
-		SortTriats();
-		console.log("now traits", traits);
-		console.log("now team", team2);
-	};
-
-	const SortTriats = () => {
-		let max = traits.length;
+		let max = tab.length;
 		for (let x = 0; x < max; x++) {
 			for (let y = 0; y < max; y++) {
 				if (x === y) continue;
 				console.log(
-					traits[y],
+					tab[y].count,
 					">",
-					traits[x],
-					traits[y].count > traits[x].count
+					tab[x].count,
+					tab[y].count > tab[x].count
 				);
-				if (traits[y].count > traits[x].count) {
-					let temp = traits[x];
-					traits[x] = traits[y];
-					traits[y] = temp;
+				if (tab[y].count < tab[x].count) {
+					let temp = tab[x];
+					tab[x] = tab[y];
+					tab[y] = temp;
 				}
 			}
 		}
+		setTraits(tab);
+
+		console.log("now traits", traits);
+		console.log("now team", team2);
 	};
+
+	useEffect(() => {
+		console.log(location);
+		dispatch(DeleteTeam());
+	}, [location]);
 
 	useEffect(() => {
 		FindTriats();

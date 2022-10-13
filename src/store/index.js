@@ -40,10 +40,13 @@ const teamSlice = createSlice({
 		RemoveTeam(state, action) {
 			return state.filter((el) => el.championId !== action.payload);
 		},
+		DeleteTeam(state, action) {
+			return (state = []);
+		},
 	},
 });
 
-export const { addTeam, RemoveTeam } = teamSlice.actions;
+export const { addTeam, RemoveTeam, DeleteTeam } = teamSlice.actions;
 
 export const store = configureStore({
 	reducer: {

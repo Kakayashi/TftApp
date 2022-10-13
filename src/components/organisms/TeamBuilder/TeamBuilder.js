@@ -8,9 +8,9 @@ import BuilderChampions from "../../molecules/BuilderChampions/BuilderChampions"
 import { TeamBuilderWrapper, OptionsWrapper } from "./TeamBuilder.style";
 import Data from "../../../data/champions.json";
 import BuilderTraits from "../../molecules/BuilderTriats/BuilderTraits";
-
 import { useDispatch, useSelector } from "react-redux";
 import { addTeam } from "../../../store";
+import BuilderItems from "../../molecules/BuilderItems/BuilderItems";
 
 function TeamBuilder() {
 	const dispatch = useDispatch();
@@ -32,6 +32,9 @@ function TeamBuilder() {
 					<OptionsWrapper>
 						<BuilderChampions />
 						<BuilderTraits />
+					</OptionsWrapper>
+					<OptionsWrapper>
+						<BuilderItems />
 					</OptionsWrapper>
 				</TeamBuilderWrapper>
 			</Wrapper>

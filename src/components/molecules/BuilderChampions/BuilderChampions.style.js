@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	width: 80%;
+	width: 85%;
 	height: 350px;
 	padding-inline: 40px;
 
@@ -12,7 +12,10 @@ export const Wrapper = styled.div`
 		height: 450px;
 	}
 	@media (max-width: 1250px) {
-		height: 500px;
+		height: 600px;
+	}
+	@media (max-width: 1150px) {
+		height: 700px;
 	}
 
 	@media (max-width: 1000px) {
