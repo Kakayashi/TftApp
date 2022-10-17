@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+
 	width: 85%;
 	margin-inline: 40px;
 	color: white;
@@ -25,4 +26,6 @@ export const ItemsWrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 `;

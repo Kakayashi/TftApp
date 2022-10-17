@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 /////* background: url(${(props) => props.img ? props.img : process.env.PUBLIC_UR+ "/champions/TFT_TrainingDummy.png`}); */
 const Item = styled.div`
@@ -10,10 +10,12 @@ const Item = styled.div`
 	background: url(${(props) => props.img});
 	background-size: contain;
 	position: relative;
+
+	${({ small }) => small && "margin-inline: 20px;"}
 `;
 
-function BuilderItemsCarousel(img) {
-	return <Item />;
+function BuilderItemsCarousel({ img, small }) {
+	return <Item img={img} small={small} />;
 }
 
 export default BuilderItemsCarousel;
