@@ -8,7 +8,7 @@ import BuilderCarousel from "../BuilderCarousel/BuilderCarousel";
 function BuilderItems() {
 	const [counter, setCounter] = useState(0);
 	const [carousel, setCarousel] = useState(["8", "8", "8"]);
-	const newData = Data.filter((el) => el.id < 9);
+	const newData = Data.filter((el) => el.id <= 9);
 
 	const AddCarousel = (id) => {
 		let newCarousel = [...carousel];

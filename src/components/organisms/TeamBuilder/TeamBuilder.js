@@ -11,6 +11,7 @@ import BuilderTraits from "../../molecules/BuilderTriats/BuilderTraits";
 import { useDispatch, useSelector } from "react-redux";
 import { addTeam } from "../../../store";
 import BuilderItems from "../../molecules/BuilderItems/BuilderItems";
+import BuilderEarlyChampions from "../../molecules/BuilderEarlyChampions/BuilderEarlyChampions";
 
 function TeamBuilder() {
 	const dispatch = useDispatch();
@@ -35,6 +36,9 @@ function TeamBuilder() {
 					</OptionsWrapper>
 					<OptionsWrapper>
 						<BuilderItems />
+					</OptionsWrapper>
+					<OptionsWrapper>
+						<BuilderEarlyChampions />
 					</OptionsWrapper>
 				</TeamBuilderWrapper>
 			</Wrapper>

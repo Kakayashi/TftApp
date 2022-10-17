@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 	@media (max-width: 1450px) {
 		padding-block: 30px;
 		transform: translateY(0);
+		flex-wrap: wrap;
 	}
 `;
 

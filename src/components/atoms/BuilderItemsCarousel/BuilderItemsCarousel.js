@@ -10,10 +10,12 @@ const Item = styled.div`
 	background: url(${(props) => props.img});
 	background-size: contain;
 	position: relative;
+
+	${({ small }) => small && "margin-inline: 20px;"}
 `;
 
-function BuilderItemsCarousel({ img }) {
-	return <Item img={img} />;
+function BuilderItemsCarousel({ img, small }) {
+	return <Item img={img} small={small} />;
 }
 
 export default BuilderItemsCarousel;
