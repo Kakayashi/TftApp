@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addTeam } from "../../../store";
 import BuilderItems from "../../molecules/BuilderItems/BuilderItems";
 import BuilderEarlyChampions from "../../molecules/BuilderEarlyChampions/BuilderEarlyChampions";
+import BuilderOptions from "../../molecules/BuilderOptions/BuilderOptions";
 
 function TeamBuilder() {
 	const dispatch = useDispatch();
@@ -39,6 +40,10 @@ function TeamBuilder() {
 					</OptionsWrapper>
 					<OptionsWrapper>
 						<BuilderEarlyChampions />
+					</OptionsWrapper>
+
+					<OptionsWrapper>
+						<BuilderOptions />
 					</OptionsWrapper>
 				</TeamBuilderWrapper>
 			</Wrapper>

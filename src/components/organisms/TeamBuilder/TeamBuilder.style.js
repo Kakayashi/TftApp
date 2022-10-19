@@ -11,7 +11,7 @@ export const OptionsWrapper = styled.div`
 	display: flex;
 	flex-direction: row;
 	width: 100%;
-	@media (max-width: 1000px) {
+	@media (max-width: 1450px) {
 		flex-direction: column;
 	}
 `;

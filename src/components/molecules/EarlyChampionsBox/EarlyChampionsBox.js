@@ -52,7 +52,7 @@ const Item = styled.div`
 
 const Search = styled.input`
 	position: absolute;
-	top: -50px;
+	top: ${({ second }) => (second ? "4px" : "-50px")};
 	left: 25%;
 	transform: translateX(-50%);
 	background-color: ${({ theme }) => theme.colors.transparent2};
@@ -65,17 +65,45 @@ const Search = styled.input`
 	text-align: center;
 	border-radius: 15px;
 	font-size: ${({ theme }) => theme.fontSize.l};
+
 	&:focus {
 		outline: none;
 		border: 2px solid orange;
 	}
+
 	@media (max-width: 1450px) {
+		top: -50px;
 		left: 50%;
 		transform: translateX(-50%);
 	}
 `;
 
-function EarlyChampionsBox({ AddChamp, champs }) {
+const SearchTitle = styled.div`
+	position: absolute;
+	font-size: 20px;
+	font-weight: bold;
+
+	top: ${({ second }) => (second ? "10px" : "-43px")};
+	left: 13%;
+	transform: translateX(-50%);
+
+	color: white;
+	@media (max-width: 1800px) {
+		left: 10%;
+	}
+	@media (max-width: 1450px) {
+		top: -42px;
+		left: 33%;
+	}
+	@media (max-width: 1050px) {
+		left: 25%;
+	}
+	@media (max-width: 730px) {
+		left: 20%;
+	}
+`;
+
+function EarlyChampionsBox({ AddChamp, champs, second }) {
 	const [search, setSearch] = useState({ name: "" });
 	const handleChange = (e) => {
 		let newValue = e.target.value;
@@ -83,7 +111,8 @@ function EarlyChampionsBox({ AddChamp, champs }) {
 	};
 	return (
 		<>
-			<Search type="text" onChange={(e) => handleChange(e)} />
+			<SearchTitle second={second}>Search:</SearchTitle>
+			<Search second={second} type="text" onChange={(e) => handleChange(e)} />
 			<Box>
 				{Data.map((el) => {
 					let picked = [];

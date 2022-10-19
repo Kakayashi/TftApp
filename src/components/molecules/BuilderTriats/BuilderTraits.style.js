@@ -6,11 +6,14 @@ export const Wrapper = styled.div`
 	width: 15%;
 	align-items: center;
 	color: white;
+	position: absolute;
+	right: 0px;
+
 	@media (max-width: 1355px) and (min-width: 1000px) {
 		margin-right: 40px;
 	}
-
-	@media (max-width: 1000px) {
+	@media (max-width: 1450px) {
+		position: relative;
 		width: 100%;
 		flex-direction: row;
 		justify-content: center;
