@@ -10,6 +10,10 @@ import {
 import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { DeleteTeam } from "../../../store";
+import {
+	useThemeUpdate,
+	useTheme,
+} from "../../organisms/TeamBuilder/TeamBuilderThemeContext";
 
 function BuilderTraits() {
 	const [traits, setTraits] = useState([]);
@@ -34,12 +38,12 @@ function BuilderTraits() {
 		for (let x = 0; x < max; x++) {
 			for (let y = 0; y < max; y++) {
 				if (x === y) continue;
-				console.log(
-					tab[y].count,
-					">",
-					tab[x].count,
-					tab[y].count > tab[x].count
-				);
+				// console.log(
+				// 	tab[y].count,
+				// 	">",
+				// 	tab[x].count,
+				// 	tab[y].count > tab[x].count
+				// );
 				if (tab[y].count < tab[x].count) {
 					let temp = tab[x];
 					tab[x] = tab[y];
@@ -50,17 +54,31 @@ function BuilderTraits() {
 		setTraits(tab);
 
 		console.log("now traits", traits);
-		console.log("now team", team2);
+		//console.log("now team", team2);
 	};
 
 	useEffect(() => {
-		console.log(location);
+		//console.log(location);
 		dispatch(DeleteTeam());
 	}, [location]);
 
 	useEffect(() => {
 		FindTriats();
 	}, [team2]);
+
+	let newContext = useTheme();
+	const updateContext = useThemeUpdate();
+
+	useEffect(() => {
+		let newTraits = traits.map((el) => {
+			return {
+				name: el.name,
+				count: el.count,
+			};
+		});
+		newContext.traits = newTraits;
+		updateContext(newContext);
+	}, [traits]);
 
 	return (
 		<Wrapper>

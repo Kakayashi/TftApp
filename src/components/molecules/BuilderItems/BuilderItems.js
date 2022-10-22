@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Wrapper, ItemsWrapper } from "./BuilderItems.style";
 import Data from "../../../data/items.json";
 import BuilderItemsItem from "../../atoms/BuilderItemsItem/BuilderItemsItem";
 import { v4 as uuid } from "uuid";
 import BuilderCarousel from "../BuilderCarousel/BuilderCarousel";
+import {
+	useThemeUpdate,
+	useTheme,
+} from "../../organisms/TeamBuilder/TeamBuilderThemeContext";
 
 function BuilderItems() {
 	const [counter, setCounter] = useState(0);
@@ -15,12 +19,20 @@ function BuilderItems() {
 		let x = counter;
 		newCarousel[x] = id;
 		//console.log(x);
-		console.log(carousel);
+		//console.log(carousel);
 		x++;
 		setCounter(x);
 		setCarousel(newCarousel);
 		x >= 3 && setCounter(0);
 	};
+
+	let newContext = useTheme();
+	const updateContext = useThemeUpdate();
+
+	useEffect(() => {
+		newContext.carousel = carousel;
+		updateContext(newContext);
+	}, [carousel]);
 
 	const changeCounter = (id) => setCounter(id);
 

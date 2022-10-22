@@ -11,6 +11,7 @@ const Box = styled.div`
 	flex-direction: row;
 	flex-wrap: wrap;
 	overflow: auto;
+	align-content: flex-start;
 	scrollbar-color: red black;
 	position: relative;
 	&::-webkit-scrollbar-track {
@@ -52,13 +53,13 @@ const Item = styled.div`
 
 const Search = styled.input`
 	position: absolute;
-	top: ${({ second }) => (second ? "4px" : "-50px")};
+	top: ${({ second }) => (second ? "-14px" : "-50px")};
 	left: 25%;
 	transform: translateX(-50%);
 	background-color: ${({ theme }) => theme.colors.transparent2};
 	color: white;
 	padding: 10px 12px;
-	border: 2px solid ${({ theme }) => theme.colors.black};
+	border: 2px solid ${({ theme }) => theme.colors.orange};
 	box-sizing: border-box;
 	width: 200px;
 	margin-inline: auto;
@@ -68,7 +69,7 @@ const Search = styled.input`
 
 	&:focus {
 		outline: none;
-		border: 2px solid orange;
+		border: 2px solid ${({ theme }) => theme.colors.pink};
 	}
 
 	@media (max-width: 1450px) {
@@ -83,7 +84,7 @@ const SearchTitle = styled.div`
 	font-size: 20px;
 	font-weight: bold;
 
-	top: ${({ second }) => (second ? "10px" : "-43px")};
+	top: ${({ second }) => (second ? "-8px" : "-43px")};
 	left: 13%;
 	transform: translateX(-50%);
 

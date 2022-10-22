@@ -75,7 +75,6 @@ const CounterItem = styled.div`
 	height: 20px;
 	border-radius: 6px;
 	text-align: center;
-	${({ id, counter }) => console.log("id", id, " carousel: ", counter)};
 `;
 
 const WraperChampions = styled.div`

@@ -67,13 +67,11 @@ const CounterItem = styled.div`
 	height: 20px;
 	border-radius: 6px;
 	text-align: center;
-	${({ id, counter }) => console.log("id", id, " carousel: ", counter)};
 `;
 
 function BuilderCarousel({ carousel, changeCounter, counter }) {
 	return (
 		<Wrapper onClick={() => console.log(carousel)}>
-			{console.log("counter:", counter)}
 			<Title>Carousel:</Title>
 			<CounterWrapper>
 				<CounterItem

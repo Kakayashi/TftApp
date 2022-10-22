@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Title = styled.p`
+const Title = styled.div`
 	position: relative;
 	font-size: 20px;
 	color: white;
@@ -57,7 +57,6 @@ const CounterItem = styled.div`
 	height: 20px;
 	border-radius: 6px;
 	text-align: center;
-	${({ id, counter }) => console.log("id", id, " carousel: ", counter)};
 `;
 
 function BuilderOprionsPicker({ counter, changeCounter }) {
