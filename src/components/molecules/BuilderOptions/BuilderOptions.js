@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Wrapper } from "./BuilderEarlyChampions.style";
+import { Wrapper } from "./BuilderOptions.style";
 import EarlyChampionsBox from "../EarlyChampionsBox/EarlyChampionsBox";
-import EarlyChampionsPicker from "../EarlyChampionsPicker/EarlyChampionsPicker";
+import BuilderOption from "../BuilderOption/BuilderOption";
 import {
 	useThemeUpdate,
 	useTheme,
 } from "../../organisms/TeamBuilder/TeamBuilderThemeContext";
 
-function BuilderEarlyChampions() {
+function BuilderOptions() {
 	const [counter2, setCounter] = useState(0);
 	const [champs, setChamps] = useState([
 		"TFT_TrainingDummy",
@@ -16,8 +16,7 @@ function BuilderEarlyChampions() {
 		"TFT_TrainingDummy",
 		"TFT_TrainingDummy",
 	]);
-
-	const AddChamp = (id) => {
+	const AddOption = (id) => {
 		let newCarousel = [...champs];
 		let x = counter2;
 		newCarousel[x] = id;
@@ -33,7 +32,12 @@ function BuilderEarlyChampions() {
 	const updateContext = useThemeUpdate();
 
 	useEffect(() => {
-		newContext.earlyChampions = champs;
+		let newOptions = [
+			{ first: "lvl", second: champs[0] },
+			{ first: champs[1], second: champs[2] },
+			{ first: champs[3], second: champs[4] },
+		];
+		newContext.options = newOptions;
 		updateContext(newContext);
 	}, [champs]);
 
@@ -41,8 +45,12 @@ function BuilderEarlyChampions() {
 
 	return (
 		<Wrapper>
-			<EarlyChampionsBox AddChamp={AddChamp} champs={champs} />
-			<EarlyChampionsPicker
+			<EarlyChampionsBox
+				AddChamp={(id) => AddOption(id)}
+				champs={champs}
+				second={true}
+			/>
+			<BuilderOption
 				champs={champs}
 				changeCounter={(id) => changeCounter(id)}
 				counter={counter2}
@@ -51,4 +59,4 @@ function BuilderEarlyChampions() {
 	);
 }
 
-export default BuilderEarlyChampions;
+export default BuilderOptions;

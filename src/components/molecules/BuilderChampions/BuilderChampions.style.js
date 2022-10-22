@@ -18,8 +18,8 @@ export const Wrapper = styled.div`
 		height: 700px;
 	}
 
-	@media (max-width: 1000px) {
-		width: 86%;
+	@media (max-width: 1450px) {
+		width: 90%;
 		height: auto;
 		border: 0;
 		justify-content: center;

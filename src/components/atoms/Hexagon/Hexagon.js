@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { useDrop } from "react-dnd";
 import HexahonItem from "./HexahonItem";
-import { useThemeUpdate } from "../../organisms/TeamBuilder/TeamBuilderThemeContext";
+import {
+	useThemeUpdate,
+	useTheme,
+} from "../../organisms/TeamBuilder/TeamBuilderThemeContext";
 import { useDispatch, useSelector } from "react-redux";
 
 const Hexagon2 = styled.div`
@@ -39,14 +42,11 @@ const Hexagon2 = styled.div`
 	background-color: ${(props) => props.isOver && props.theme.colors.pink};
 `;
 
-function Hexagon({ AddTeam }) {
+function Hexagon({ AddTeam, position }) {
 	const [board, setBoard] = useState(false);
 	const [hexagonName, setHexagonName] = useState("");
-
-	const dispatch = useDispatch();
-	const team2 = useSelector((state) => state.team);
-	const updateTeam = useThemeUpdate();
-
+	const updateContext = useThemeUpdate();
+	let context = useTheme();
 	const [{ isOver, canDrop }, drop] = useDrop(() => ({
 		accept: "image",
 		drop: (item) => addImageToBoard(item),
@@ -58,9 +58,15 @@ function Hexagon({ AddTeam }) {
 
 	const addImageToBoard = (item) => {
 		setBoard(item.id);
-
 		AddTeam(item.name);
 		setHexagonName(item.name);
+		//let oldChamps = context.champions;
+		//console.log("przed", oldChamps);
+		let newChamp = { champion: item.name, position };
+		context.champions.push(newChamp);
+		console.log("po", context.champions);
+		updateContext(context);
+
 		//updateTeam(item.name);
 		// console.log("id", item.id);
 		// console.log("name", item.name);
@@ -79,6 +85,7 @@ function Hexagon({ AddTeam }) {
 				{board ? (
 					<HexahonItem
 						img={board}
+						position={position}
 						isOver={isOver}
 						removeImage={() => removeImage()}
 						name={hexagonName}

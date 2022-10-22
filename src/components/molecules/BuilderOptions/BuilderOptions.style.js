@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 	flex-direction: row;
 	margin-inline: 40px;
 	align-items: center;
-
+	margin-top: 80px;
 	@media (max-width: 1450px) {
 		flex-direction: column;
 		width: 100%;

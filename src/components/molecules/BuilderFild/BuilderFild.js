@@ -8,7 +8,7 @@ function BuilderFild({ AddTeam }) {
 	for (let i = 0; i < 28; i++) {
 		items.push(
 			<React.Fragment key={"hexagon2" + i}>
-				<Hexagon AddTeam={(el) => AddTeam(el)} />
+				<Hexagon position={i} AddTeam={(el) => AddTeam(el)} />
 			</React.Fragment>
 		);
 
