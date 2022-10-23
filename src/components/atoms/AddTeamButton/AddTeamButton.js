@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useTheme } from "../../organisms/TeamBuilder/TeamBuilderThemeContext";
 import { useDispatch, useSelector } from "react-redux";
 import { addTeamComp } from "../../../store";
+import ErrorMessages from "../ErrorMessages/ErrorMessages";
 
 const StyledButton = styled.button`
 	background-color: ${({ theme }) => theme.colors.orange};
@@ -13,15 +14,16 @@ const StyledButton = styled.button`
 	font-weight: bold;
 	border-radius: 25px;
 	transition: 0.2s;
+	cursor: pointer;
 	&:hover {
 		background-color: ${({ theme }) => theme.colors.pink};
 	}
 `;
 
-const StyledText = styled.p`
-	font-weight: bold;
-	color: ${({ theme }) => theme.colors.pink};
-	font-size: 25px;
+const Wrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
 function AddTeamButton() {
@@ -33,22 +35,20 @@ function AddTeamButton() {
 	const FindErrors = () => {
 		setError([]);
 		let newError = [];
-		context.titile === "" && newError.push("Add title");
-		context.strategy === "" && newError.push("Add strategy");
-		context.champions === [] && newError.push("Add champions");
-		error === [] && dispatch(addTeamComp(context));
-		newError === [] && setError(newError);
+		context.titile === "" && newError.push("Add name!");
+		context.strategy === "" && newError.push("Add strategy!");
+		context.champions.length === 0 && newError.push("Add champions!");
+		newError.length === 0 && dispatch(addTeamComp(context));
+		newError.length === 0 && newError.push("Added!");
+		setError(newError);
 		console.log(team2);
-		console.log(error);
 	};
 
 	return (
-		<>
-			{error.map((el) => {
-				<StyledText>xd</StyledText>;
-			})}
+		<Wrapper>
 			<StyledButton onClick={() => FindErrors()}>Add team</StyledButton>
-		</>
+			<ErrorMessages setError={() => setError()} errors={error} />
+		</Wrapper>
 	);
 }
 

@@ -1,8 +1,30 @@
 import React, { useState } from "react";
 import { Wrapper, Title } from "./TeamComps.style";
 import Team from "../../molecules/Team/Team";
+import { useSelector } from "react-redux";
+import { v4 as uuid } from "uuid";
 
 function TeamComps() {
+	const team = useSelector((state) => state.teamComp);
+	let userTeam;
+	console.log("xd", team);
+	if (team.length !== 0) {
+		userTeam = team.map((el) => {
+			return (
+				<Team
+					key={uuid()}
+					titile={el.titile}
+					tier={el.tier}
+					strategy={el.strategy}
+					champions={el.champions}
+					earlyChampions={el.earlyChampions}
+					traits={el.traits}
+					carousel={el.carousel}
+					options={el.options}
+				/>
+			);
+		});
+	}
 	return (
 		<>
 			<Wrapper>
@@ -107,6 +129,8 @@ function TeamComps() {
 						{ first: "TFT5_Volibear", second: "TFT5_Pyke" },
 					]}
 				/>
+				{team.length !== 0 && <Title>User Team</Title>}
+				{userTeam}
 			</Wrapper>
 			;
 		</>

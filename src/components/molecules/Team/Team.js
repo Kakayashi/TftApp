@@ -28,6 +28,7 @@ import {
 	TeamInfoEarlyLvl,
 } from "./Team.style";
 import GameFild from "../GameFild/GameFild";
+import { v4 as uuid } from "uuid";
 
 function Team2(props) {
 	const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +52,7 @@ function Team2(props) {
 					{props.champions.map((el) => {
 						return (
 							<Hero
-								key={"hero" + el.champion}
+								key={uuid()}
 								img={
 									process.env.PUBLIC_URL + "champions/" + el.champion + ".png"
 								}
@@ -74,7 +75,7 @@ function Team2(props) {
 												img={
 													process.env.PUBLIC_URL + "champions/" + el + ".png"
 												}
-												key={"early" + el}
+												key={uuid()}
 											/>
 										);
 									})}
@@ -87,7 +88,7 @@ function Team2(props) {
 								<TeamInfoTraitsWrapper>
 									{props.traits.map((el) => {
 										return (
-											<TeamInfoTraitInfo key={"Traits" + el.name}>
+											<TeamInfoTraitInfo key={uuid()}>
 												<TeamInfoTraitIcon
 													img={
 														process.env.PUBLIC_URL +
@@ -112,7 +113,7 @@ function Team2(props) {
 									{props.carousel.map((el) => {
 										addSign();
 										return (
-											<React.Fragment key={"Carousel" + el}>
+											<React.Fragment key={uuid()}>
 												<TeamInfoEarlyChampion
 													img={process.env.PUBLIC_URL + "items/" + el + ".png"}
 												/>
@@ -128,7 +129,7 @@ function Team2(props) {
 								<TeamInfoInfoName>Options</TeamInfoInfoName>
 								{props.options.map((el) => {
 									return (
-										<TeamInfoEarlyChamps key={"Options" + el.first}>
+										<TeamInfoEarlyChamps key={uuid()}>
 											{el.first === "lvl" ? (
 												<TeamInfoEarlyLvl />
 											) : (
