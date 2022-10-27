@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { v4 as uuid } from "uuid";
 
 const ModalNameWrapper = styled.div`
 	display: flex;
@@ -113,7 +114,7 @@ function ItemsDetail({ item }) {
 					}
 
 					return (
-						<ModalWrapperTriatItem>
+						<ModalWrapperTriatItem key={uuid()}>
 							<ModalTriatImg
 								img={process.env.PUBLIC_URL + "traits/" + Newstring + ".png"}
 							/>

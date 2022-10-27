@@ -11,12 +11,14 @@ export const Wrapper = styled.div`
 	color: white;
 	justify-content: space-between;
 
+	@media (max-width: 1600px) {
+		flex-direction: column;
+	}
+
 	@media (max-width: 1450px) {
 		justify-content: center;
 	}
-	@media (max-width: 1250px) {
-		width: 70%;
-	}
+
 	@media (max-width: 1000px) {
 		width: 90%;
 	}
@@ -27,4 +29,5 @@ export const ItemsWrapper = styled.div`
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
+	padding: 15px 0;
 `;

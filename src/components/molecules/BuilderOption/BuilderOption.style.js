@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
 	position: relative;
 	width: 450px;
 	padding-block: 10px;
-
 	@media (max-width: 1600px) {
 		width: auto;
 	}

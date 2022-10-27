@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
 	width: 80%;
 	height: auto;
+	overflow: hidden;
 	background-color: ${({ theme }) => theme.colors.black};
 	margin-inline: auto;
 	margin-top: 10vh;
@@ -13,4 +14,8 @@ export const Wrapper = styled.div`
 	border-radius: 20px;
 	position: relative;
 	padding-top: 80px;
+
+	@media (max-width: 500px) {
+		width: 95%;
+	}
 `;

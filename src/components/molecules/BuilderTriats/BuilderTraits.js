@@ -81,7 +81,18 @@ function BuilderTraits() {
 				count: el.count,
 			};
 		});
-		newContext.traits = newTraits;
+		let shortTraits = [];
+		let maxx = 0;
+		//console.log("NewTraits", newTraits);
+		//console.log("NewTraits", newTraits.length);
+		newTraits.length < 6 ? (maxx = newTraits.length) : (maxx = 6);
+		//console.log("max: ", maxx);
+
+		for (let i = 0; i < maxx; i++) {
+			shortTraits.push(newTraits[i]);
+		}
+		//console.log("shortTraits", shortTraits);
+		newContext.traits = shortTraits;
 		updateContext(newContext);
 	}, [traits]);
 

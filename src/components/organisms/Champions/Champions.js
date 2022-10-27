@@ -4,6 +4,7 @@ import styled from "styled-components";
 import useModal from "../Modal/useModal";
 import Modal from "../Modal/Modal";
 import ChampionDetail from "../../molecules/ChampionDetail/ChampionDetail";
+import { v4 as uuid } from "uuid";
 
 const Wrapper = styled.div`
 	width: 80%;
@@ -72,7 +73,7 @@ function Champions() {
 
 			{Data.map((el) => {
 				return (
-					<ItemWrapper key={el.championId + "Wrapper"}>
+					<ItemWrapper key={uuid()}>
 						<Item
 							key={el.championId + "Item"}
 							img={

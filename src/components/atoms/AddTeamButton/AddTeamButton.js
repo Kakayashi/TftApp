@@ -4,6 +4,7 @@ import { useTheme } from "../../organisms/TeamBuilder/TeamBuilderThemeContext";
 import { useDispatch, useSelector } from "react-redux";
 import { addTeamComp } from "../../../store";
 import ErrorMessages from "../ErrorMessages/ErrorMessages";
+import ErrorMessage from "../ErrorMessage/ErrorMessage";
 
 const StyledButton = styled.button`
 	background-color: ${({ theme }) => theme.colors.orange};
@@ -31,6 +32,7 @@ function AddTeamButton() {
 	const team2 = useSelector((state) => state.teamComp);
 	const dispatch = useDispatch();
 	const [error, setError] = useState([]);
+	const [keyCounter, setKeyCounter] = useState(12);
 
 	const FindErrors = () => {
 		setError([]);
@@ -46,8 +48,22 @@ function AddTeamButton() {
 
 	return (
 		<Wrapper>
-			<StyledButton onClick={() => FindErrors()}>Add team</StyledButton>
-			<ErrorMessages setError={() => setError()} errors={error} />
+			<StyledButton
+				onClick={() => {
+					console.log(keyCounter);
+					setKeyCounter(keyCounter + 1);
+					FindErrors();
+				}}
+			>
+				Add team
+			</StyledButton>
+			{error.length !== 0 && (
+				<ErrorMessage
+					kkey={"ErrorKey" + keyCounter}
+					message={error}
+					title={error[0] === "Added!" ? "Succes!" : "Ooops!"}
+				></ErrorMessage>
+			)}
 		</Wrapper>
 	);
 }

@@ -102,6 +102,11 @@ const SearchTitle = styled.div`
 	@media (max-width: 730px) {
 		left: 20%;
 	}
+	@media (max-width: 600px) {
+		top: -85px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
 `;
 
 function EarlyChampionsBox({ AddChamp, champs, second }) {

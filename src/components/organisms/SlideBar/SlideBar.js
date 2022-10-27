@@ -16,16 +16,24 @@ function SlideBar() {
 				<Navigation>
 					<ul>
 						<li>
-							<StyledLink to="/">Lorem</StyledLink>
+							<StyledLink onClick={() => setIsOpen(!isOpen)} to="/">
+								Team Comps
+							</StyledLink>
 						</li>
 						<li>
-							<StyledLink to="/">Lorem2</StyledLink>
+							<StyledLink onClick={() => setIsOpen(!isOpen)} to="/teamBuilder">
+								Team Builder
+							</StyledLink>
 						</li>
 						<li>
-							<StyledLink to="/">Lorem3</StyledLink>
+							<StyledLink onClick={() => setIsOpen(!isOpen)} to="/Champions">
+								Champions
+							</StyledLink>
 						</li>
 						<li>
-							<StyledLink to="/">Lorem4</StyledLink>
+							<StyledLink onClick={() => setIsOpen(!isOpen)} to="/items">
+								Items
+							</StyledLink>
 						</li>
 					</ul>
 				</Navigation>
