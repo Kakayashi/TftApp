@@ -13,7 +13,7 @@ export const AppearAnimation = keyframes`
 export const Navigation = styled.nav`
 	width: 100%;
 	height: 100vh;
-	background-color: ${({ theme }) => theme.colors.black};
+	background-color: ${({ theme }) => theme.colors.black2};
 	z-index: 999;
 	position: absolute;
 	left: 0;
@@ -116,8 +116,10 @@ export const MenuToogleButton = styled.button`
 export const StyledLink = styled(NavLink)`
 	font-size: 25px;
 	text-decoration: none;
-
+	color: white;
+	font-weight: bolder;
+	transition: 0.2s;
 	&:hover {
-		text-decoration: underline;
+		color: orange;
 	}
 `;

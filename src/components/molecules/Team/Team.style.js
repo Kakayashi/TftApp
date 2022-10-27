@@ -25,12 +25,11 @@ export const TeamName = styled.div`
 `;
 
 export const TeamNameTier = styled.div`
-	width: 40px;
+	min-width: 40px;
 	height: 42px;
 	font-size: 25px;
 	font-weight: bold;
 	color: white;
-
 	position: relative;
 	margin: 20px;
 	border-radius: 10px;

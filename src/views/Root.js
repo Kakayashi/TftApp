@@ -20,10 +20,10 @@ function Root() {
 				<AnimatedBackground />
 
 				<Routes>
-					<Route path="/" exact element={<Champions />} />
-					<Route path="/items" exact element={<Items />} />
-					<Route path="/teamComps" exact element={<TeamComps />} />
+					<Route path="/" exact element={<TeamComps />} />
 					<Route path="/teamBuilder" exact element={<TeamBuilderProvider />} />
+					<Route path="/items" exact element={<Items />} />
+					<Route path="/Champions" exact element={<Champions />} />
 				</Routes>
 			</Wrapper>
 		</BrowserRouter>

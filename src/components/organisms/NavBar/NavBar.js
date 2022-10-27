@@ -24,10 +24,10 @@ function NavBar() {
 			) : (
 				<Wrapper>
 					<Logo>TFT_app</Logo>
-					<StyledLink to="/">Champions</StyledLink>
-					<StyledLink to="/items">Items</StyledLink>
-					<StyledLink to="/teamComps">Team comps</StyledLink>
+					<StyledLink to="/">Team Comps</StyledLink>
 					<StyledLink to="/teamBuilder">Team builder</StyledLink>
+					<StyledLink to="/Champions">Champions</StyledLink>
+					<StyledLink to="/items">Items</StyledLink>
 				</Wrapper>
 			)}
 		</>

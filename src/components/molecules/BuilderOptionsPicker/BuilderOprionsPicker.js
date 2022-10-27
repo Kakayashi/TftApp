@@ -26,8 +26,12 @@ const Title = styled.div`
 	color: white;
 	font-weight: bold;
 	transform: translateX(-50%);
+`;
+
+const WrapperItems = styled.div`
+	position: relative;
 	@media (max-width: 1450px) {
-		top: -10px;
+		top: -40px;
 	}
 `;
 
@@ -40,6 +44,10 @@ const CounterWrapper = styled.div`
 	font-size: 20px;
 	left: 110px;
 	top: 5px;
+	@media (max-width: 1450px) {
+		left: -90%;
+		top: 40px;
+	}
 `;
 
 const CounterItem = styled.div`
@@ -62,8 +70,8 @@ const CounterItem = styled.div`
 function BuilderOprionsPicker({ counter, changeCounter }) {
 	return (
 		<Wrapper>
-			<Title>
-				Options:
+			<WrapperItems>
+				<Title>Options:</Title>
 				<CounterWrapper>
 					<CounterItem
 						id={0}
@@ -101,7 +109,7 @@ function BuilderOprionsPicker({ counter, changeCounter }) {
 						4
 					</CounterItem>
 				</CounterWrapper>
-			</Title>
+			</WrapperItems>
 		</Wrapper>
 	);
 }

@@ -14,6 +14,7 @@ import {
 	useThemeUpdate,
 	useTheme,
 } from "../../organisms/TeamBuilder/TeamBuilderThemeContext";
+import { v4 as uuid } from "uuid";
 
 function BuilderTraits() {
 	const [traits, setTraits] = useState([]);
@@ -71,12 +72,27 @@ function BuilderTraits() {
 
 	useEffect(() => {
 		let newTraits = traits.map((el) => {
+			let newName = "";
+			for (let i = 5; i < el.name.length; i++) {
+				newName += el.name[i];
+			}
 			return {
-				name: el.name,
+				name: newName,
 				count: el.count,
 			};
 		});
-		newContext.traits = newTraits;
+		let shortTraits = [];
+		let maxx = 0;
+		//console.log("NewTraits", newTraits);
+		//console.log("NewTraits", newTraits.length);
+		newTraits.length < 6 ? (maxx = newTraits.length) : (maxx = 6);
+		//console.log("max: ", maxx);
+
+		for (let i = 0; i < maxx; i++) {
+			shortTraits.push(newTraits[i]);
+		}
+		//console.log("shortTraits", shortTraits);
+		newContext.traits = shortTraits;
 		updateContext(newContext);
 	}, [traits]);
 
@@ -94,7 +110,7 @@ function BuilderTraits() {
 				}
 
 				return (
-					<TeamInfoTraitInfo key={"BuilderTriat" + el.name}>
+					<TeamInfoTraitInfo key={uuid()}>
 						<TeamInfoTraitIcon
 							img={process.env.PUBLIC_URL + "traits/" + Newstring + ".png"}
 						></TeamInfoTraitIcon>

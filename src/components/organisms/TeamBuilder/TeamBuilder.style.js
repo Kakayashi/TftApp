@@ -13,5 +13,8 @@ export const OptionsWrapper = styled.div`
 	width: 100%;
 	@media (max-width: 1450px) {
 		flex-direction: column;
+
+		justify-content: center;
+		align-items: center;
 	}
 `;
